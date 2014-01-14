@@ -4,10 +4,11 @@
   "description": "Simple HTML5 charts using the canvas tag",
   "keywords": [],
   "author": {
-    "name": "Vincent Velociter",
+    "name": "Nick Downie",
     "email": "",
     "url": "http://www.zengularity.com/"
   },
+  "main": "Chart.js",
   "homepage": "https://github.com/veloce/Chart.js",
   "bugs": "https://github.com/veloce/Chart.js/issues",
   "repository": {

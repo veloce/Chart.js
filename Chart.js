@@ -8,7 +8,8 @@
  */
 
 //Define the global Chart Variable as a class.
-Chart = function(context){
+
+module.exports = function(context){
 
 	var chart = this;
 
@@ -1423,4 +1424,3 @@ Chart = function(context){
 	  };
 };
 
-module.exports = Chart;
