@@ -1,0 +1,17 @@
+{
+  "name": "Chart.js",
+  "version": "0.2.0",
+  "description": "Simple HTML5 charts using the canvas tag",
+  "keywords": [],
+  "author": {
+    "name": "Vincent Velociter",
+    "email": "",
+    "url": "http://www.zengularity.com/"
+  },
+  "homepage": "https://github.com/veloce/Chart.js",
+  "bugs": "https://github.com/veloce/Chart.js/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veloce/Chart.js.git"
+  }
+}
