@@ -948,7 +948,7 @@ module.exports = function(context){
 			if (config.scaleShowLabels){
 				ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 				for (var i=0; i<calculatedScale.labels.length; i++){
-					var measuredText = ctx.measureText(calculatedScale.labels[i]).width;
+					var measuredText = ctx.measureText(config.scaleStepsFormatter(calculatedScale.labels[i])).width;
 					longestText = (measuredText > longestText)? measuredText : longestText;
 				}
 				//Add a little extra padding from the y axis
