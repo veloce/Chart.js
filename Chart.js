@@ -287,6 +287,9 @@ module.exports = function(context){
 
 		chart.Line.defaults = {
 			scaleOverlay : false,
+      // should be a predicate function on data indexes (by default show each step)
+      scaleStepsShowFilter: function(i) { return true; },
+      scaleStepsFormatter: function(s) { return s; },
 			scaleOverride : false,
 			scaleSteps : null,
 			scaleStepWidth : null,
@@ -916,6 +919,9 @@ module.exports = function(context){
 			ctx.textAlign = "right";
 			ctx.textBaseline = "middle";
 			for (var j=0; j<calculatedScale.steps; j++){
+
+        if (!config.scaleStepsShowFilter(j)) continue;
+
 				ctx.beginPath();
 				ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
 				if (config.scaleShowGridLines){
@@ -930,7 +936,7 @@ module.exports = function(context){
 				ctx.stroke();
 
 				if (config.scaleShowLabels){
-					ctx.fillText(calculatedScale.labels[j],yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+					ctx.fillText(config.scaleStepsFormatter(calculatedScale.labels[j]),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
 				}
 			}
 
