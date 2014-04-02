@@ -970,9 +970,9 @@ module.exports = function(context){
 			ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 			widestXLabel = 1;
 			for (var i=0; i<data.labels.length; i++){
-				var textLength = ctx.measureText(data.labels[i]).width;
+				var textLength = Math.ceil(ctx.measureText(data.labels[i]).width);
 				//If the text length is longer - make that equal to longest text!
-				widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
+        if (textLength > widestXLabel) widestXLabel = textLength;
 			}
 			if (width/data.labels.length < widestXLabel){
 				rotateLabels = 45;
@@ -1177,9 +1177,9 @@ module.exports = function(context){
 			ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 			widestXLabel = 1;
 			for (var i=0; i<data.labels.length; i++){
-				var textLength = ctx.measureText(data.labels[i]).width;
+				var textLength = Math.ceil(ctx.measureText(data.labels[i]).width);
 				//If the text length is longer - make that equal to longest text!
-				widestXLabel = (textLength > widestXLabel)? textLength : widestXLabel;
+        if (textLength > widestXLabel) widestXLabel = textLength;
 			}
 			if (width/data.labels.length < widestXLabel){
 				rotateLabels = 45;
