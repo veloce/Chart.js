@@ -974,16 +974,17 @@ module.exports = function(context){
 				//If the text length is longer - make that equal to longest text!
         if (textLength > widestXLabel) widestXLabel = textLength;
 			}
-			if (width/data.labels.length < widestXLabel){
-				rotateLabels = 45;
-				if (width/data.labels.length < Math.cos(rotateLabels) * widestXLabel){
-					rotateLabels = 90;
-					maxSize -= widestXLabel;
-				}
-				else{
-					maxSize -= Math.sin(rotateLabels) * widestXLabel;
-				}
-			}
+      var avgLabelLength = width/data.labels.length;
+      if ((widestXLabel * 100 / avgLabelLength) > 90){
+        rotateLabels = 45;
+        if (avgLabelLength < Math.cos(rotateLabels) * widestXLabel){
+          rotateLabels = 90;
+          maxSize -= widestXLabel;
+        }
+        else{
+          maxSize -= Math.sin(rotateLabels) * widestXLabel;
+        }
+      }
 			else{
 				maxSize -= config.scaleFontSize;
 			}
@@ -1181,16 +1182,17 @@ module.exports = function(context){
 				//If the text length is longer - make that equal to longest text!
         if (textLength > widestXLabel) widestXLabel = textLength;
 			}
-			if (width/data.labels.length < widestXLabel){
-				rotateLabels = 45;
-				if (width/data.labels.length < Math.cos(rotateLabels) * widestXLabel){
-					rotateLabels = 90;
-					maxSize -= widestXLabel;
-				}
-				else{
-					maxSize -= Math.sin(rotateLabels) * widestXLabel;
-				}
-			}
+      var avgLabelLength = width/data.labels.length;
+      if ((widestXLabel * 100 / avgLabelLength) > 90){
+        rotateLabels = 45;
+        if (avgLabelLength < Math.cos(rotateLabels) * widestXLabel){
+          rotateLabels = 90;
+          maxSize -= widestXLabel;
+        }
+        else{
+          maxSize -= Math.sin(rotateLabels) * widestXLabel;
+        }
+      }
 			else{
 				maxSize -= config.scaleFontSize;
 			}
