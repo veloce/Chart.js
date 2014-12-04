@@ -899,15 +899,6 @@ module.exports = function(context){
 				ctx.beginPath();
 				ctx.moveTo(yAxisPosX + i * valueHop, xAxisPosY+3);
 
-				//Check i isnt 0, so we dont go over the Y axis twice.
-				if(config.scaleShowGridLines && i>0){
-					ctx.lineWidth = config.scaleGridLineWidth;
-					ctx.strokeStyle = config.scaleGridLineColor;
-					ctx.lineTo(yAxisPosX + i * valueHop, 5);
-				}
-				else{
-					ctx.lineTo(yAxisPosX + i * valueHop, xAxisPosY+3);
-				}
 				ctx.stroke();
 			}
 
