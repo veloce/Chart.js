@@ -930,7 +930,7 @@ module.exports = function(context){
 				ctx.stroke();
 
 				if (config.scaleShowLabels){
-					ctx.fillText(config.scaleStepsFormatter(calculatedScale.labels[j]),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+					ctx.fillText(config.scaleStepsFormatter(calculatedScale.labels[j], calculatedScale),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
 				}
 			}
 
@@ -942,7 +942,7 @@ module.exports = function(context){
 			if (config.scaleShowLabels){
 				ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 				for (var i=0; i<calculatedScale.labels.length; i++){
-					var measuredText = ctx.measureText(config.scaleStepsFormatter(calculatedScale.labels[i])).width;
+					var measuredText = ctx.measureText(config.scaleStepsFormatter(calculatedScale.labels[i], calculatedScale)).width;
 					longestText = (measuredText > longestText)? measuredText : longestText;
 				}
 				//Add a little extra padding from the y axis
@@ -1136,7 +1136,7 @@ module.exports = function(context){
 
 				ctx.stroke();
 				if (config.scaleShowLabels){
-					ctx.fillText(config.scaleStepsFormatter(calculatedScale.labels[j]),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+					ctx.fillText(config.scaleStepsFormatter(calculatedScale.labels[j],calculatedScale),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
 				}
 			}
 
@@ -1148,7 +1148,7 @@ module.exports = function(context){
 			if (config.scaleShowLabels){
 				ctx.font = config.scaleFontStyle + " " + config.scaleFontSize+"px " + config.scaleFontFamily;
 				for (var i=0; i<calculatedScale.labels.length; i++){
-					var measuredText = ctx.measureText(config.scaleStepsFormatter(calculatedScale.labels[i])).width;
+					var measuredText = ctx.measureText(config.scaleStepsFormatter(calculatedScale.labels[i],calculatedScale)).width;
 					longestText = (measuredText > longestText)? measuredText : longestText;
 				}
 				//Add a little extra padding from the y axis
