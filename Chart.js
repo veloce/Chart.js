@@ -796,6 +796,12 @@ module.exports = function(context){
 	var Line = function(data,config,ctx){
 		var maxSize, scaleHop, calculatedScale, labelHeight, scaleHeight, valueBounds, labelTemplateString, valueHop,widestXLabel, xAxisLength,yAxisPosX,xAxisPosY, rotateLabels = 0;
 
+    if (config.invertYScale) {
+      for (var i=0; i<data.datasets.length; i++){
+        data.datasets[i].data = data.datasets[i].data.map(function(e) { return e * -1; });
+      }
+    }
+
 		calculateDrawingSizes();
 
 		valueBounds = getValueBounds();
@@ -930,7 +936,7 @@ module.exports = function(context){
 				ctx.stroke();
 
 				if (config.scaleShowLabels){
-					ctx.fillText(config.scaleStepsFormatter(calculatedScale.labels[j], calculatedScale),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
+					ctx.fillText(config.scaleStepsFormatter(config.invertYScale ? calculatedScale.labels[j] * -1 : calculatedScale.labels[j], calculatedScale),yAxisPosX-8,xAxisPosY - ((j+1) * scaleHop));
 				}
 			}
 
